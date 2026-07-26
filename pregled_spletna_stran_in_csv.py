@@ -1,6 +1,7 @@
 import os
 import requests
 
+
 def shrani_spletno_stran_po_potrebi(url, ime_html_datoteke, mapa):
     '''Funkcija, ki sprejme url, ime html datoteke in ime mape,
     ta preveri če mapa že obstaja (če ne jo ustvari), potem pa

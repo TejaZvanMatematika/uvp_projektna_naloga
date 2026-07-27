@@ -2,16 +2,11 @@ import os
 import requests
 
 
-def shrani_spletno_stran_po_potrebi(url, mapa, ime_html_datoteke):
-    '''Funkcija, ki sprejme url, ime html datoteke in ime mape,
-    ta preveri če mapa že obstaja (če ne jo ustvari), potem pa
-    preveri če obstaja pot do datoteke (če obstaja ne naredi nič,
-    če ne pa pridobi html kodo iz url in shrani kodo v html datoteko)
+def shrani_spletno_stran_po_potrebi(url, pot):
+    '''Funkcija, ki sprejme url in pot do tja kamor želimo shraniti
+    datoteko, če pot ne obstaja shrani datoteko s spletno stranjo
+    tja, drugače ne naredi nič
     '''
-    pot = os.path.join(mapa, ime_html_datoteke)
-
-    os.makedirs(mapa, exist_ok=True)
-
     if os.path.exists(pot):
         pass
     else:
@@ -20,6 +15,6 @@ def shrani_spletno_stran_po_potrebi(url, mapa, ime_html_datoteke):
             f.write(html_koda)
 
 
-def ustvari_csv_mapo(mapa):
+def ustvari_mapo(mapa):
     '''Funkcija, ki pogleda za obstoj mape (če mape ni jo ustvari)'''
     os.makedirs(mapa, exist_ok=True)

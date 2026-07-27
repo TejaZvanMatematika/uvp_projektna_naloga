@@ -2,10 +2,8 @@ import csv
 import os
 
 
-def shrani_v_csv(sez, mapa, ime_csv):
+def shrani_v_csv(sez, pot):
     '''Funkcija zapiše podatke iz seznama v csv datoteko'''
-    pot = os.path.join(mapa, ime_csv)
-
     with open(pot, 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(['ID', 'Priimek ime', 'Letnica rojstva', 'Država', 'Elo'])

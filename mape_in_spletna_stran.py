@@ -2,10 +2,9 @@ import os
 import requests
 
 
-def shrani_spletno_stran_po_potrebi(url, pot):
-    '''Funkcija, ki sprejme url in pot do tja kamor želimo shraniti
-    datoteko, če pot ne obstaja shrani datoteko s spletno stranjo
-    tja, drugače ne naredi nič
+def shrani_spletno_stran(url, pot):
+    '''Funkcija, ki sprejme url in pot do datoteke,če pot ne obstaja
+    shrani datoteko s spletno stranjotja, drugače ne naredi nič
     '''
     if os.path.exists(pot):
         pass

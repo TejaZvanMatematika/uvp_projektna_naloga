@@ -13,10 +13,18 @@ mape_in_kode.ustvari_mapo(MAPA_CSV_DATOTEKE)
 
 
 SEZ = [
-    ('https://ratings.fide.com/a_top.php?list=open', '100_players_koda.html',
-     '100_players_podatki.csv'),
+    ('https://ratings.fide.com/a_top.php?list=open', '100_men_koda.html',
+     '100_men_podatki.csv'),
     ('https://ratings.fide.com/a_top.php?list=women', '100_wemen_koda.html',
-     '100_wemen_podatki.csv')
+     '100_wemen_podatki.csv'),
+    ('https://ratings.fide.com/a_top.php?list=men_rapid', '100_men_rapid_koda.html',
+     '100_men_rapid_podatki.csv'),
+    ('https://ratings.fide.com/a_top.php?list=women_rapid', '100_wemen_rapid_koda.html',
+     '100_wemen_rapid_podatki.csv'),
+    ('https://ratings.fide.com/a_top.php?list=men_blitz', '100_men_blitz_koda.html',
+     '100_men_blitz_podatki.csv'),
+    ('https://ratings.fide.com/a_top.php?list=women_blitz', '100_wemen_blitz_koda.html',
+     '100_wemen_blitz_podatki.csv')
 ]
 
 

@@ -1,11 +1,12 @@
 import os
+import requests
 
 
 def preveri_podatke(sez, html_mapa, csv_mapa):
     '''Funkcija ki sprejme seznam podatkov in imena map, pogleda ce
     mape obstajata in ce je v csv 101 vrstic
     '''
-    for _, dat_html, dat_csv in sez:
+    for _, dat_html, dat_csv, _ in sez:
         pot_html = os.path.join(html_mapa, dat_html)
         pot_csv = os.path.join(csv_mapa, dat_csv)
 
@@ -19,3 +20,16 @@ def preveri_podatke(sez, html_mapa, csv_mapa):
             return False
         
     return True
+
+
+def preveri_nalaganje_spletne_strani(url):
+    '''Funkcija ki preveri če pride do napake pri odpiranju spletne 
+    strani
+    '''
+    glava = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+
+    try:
+        odgovor = requests.get(url, headers=glava, timeout=10)
+        return odgovor.status_code == 200
+    except requests.RequestException:
+        return False

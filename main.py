@@ -1,10 +1,9 @@
-import os
+import sys
 
 import mape_in_spletna_stran
-import seznam_v_csv
-import seznam
 import pregled
 import hec
+import povezovanje_funkcij
 
 
 SEZ = [
@@ -23,41 +22,49 @@ SEZ = [
 ]
 MAPA_HTML_KODE = 'HTML_kode'
 MAPA_CSV_DATOTEKE = 'CSV_datoteke'
-STEVEC = 0
+SPLETNE_STRANI_DELUJEJO = True
 
 mape_in_spletna_stran.ustvari_mapo(MAPA_HTML_KODE)
 mape_in_spletna_stran.ustvari_mapo(MAPA_CSV_DATOTEKE)
 
 
-if pregled.preveri_podatke(SEZ, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE):
-    st_poskusov = hec.stevnik()
-    if st_poskusov < 5:
-        print('Datoteke so že nameščene.')
-    elif st_poskusov == 5:
-        print('Kolikokrat moraš še poskusiti?')
-    elif st_poskusov == 6:
-        print('Še vedno vstrajaš?')
-    elif st_poskusov == 7:
-        print('No prav, bom pa štel tvoje poskuse.')
-    elif st_poskusov < 100:
-        print(f'To je {st_poskusov} poskus.')
-    elif st_poskusov == 100:
-        print(f'Juhu, uspelo ti je priti do {st_poskusov}, sedaj pa dovolj.')
-    else:
-        print('>:(')
+if pregled.brez_datotek(MAPA_CSV_DATOTEKE):
+    for podsez in SEZ:
+        if not pregled.preveri_nalaganje_spletne_strani(podsez[0]):
+            print(f'Prišlo je do napake pri odpiranju spletne strani z'
+                f'naslovom {podsez[3]}. Poskusi znova.')
+            SPLETNE_STRANI_DELUJEJO = False
+
+if not SPLETNE_STRANI_DELUJEJO:
+    sys.exit()
+
+
+if pregled.brez_datotek(MAPA_CSV_DATOTEKE):
+    for podsez in SEZ:
+        povezovanje_funkcij.poveži(podsez, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE)
+    print('Nameščanje datotek končano.')
+    hec.ponastavi()
 else:
-    for sez in SEZ:
-        if not pregled.preveri_nalaganje_spletne_strani(sez[0]):
-            print(f'Prišlo je do napake pri nalaganju spletne strani z naslovom {sez[3]}')
-            break
-
-        pot_html = os.path.join(MAPA_HTML_KODE, sez[1])
-        pot_csv = os.path.join(MAPA_CSV_DATOTEKE, sez[2])
-
-        mape_in_spletna_stran.shrani_spletno_stran(sez[0], pot_html)
-        with open(pot_html, 'r', encoding='utf-8') as f:
-            html_koda = f.read()
-
-        sez_podatki = seznam.seznam_podatkov(html_koda)
-        seznam_v_csv.shrani_v_csv(sez_podatki, pot_csv)
-    print('Nameščanje končano.')
+    if pregled.preveri_vse_podatke(SEZ, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE):
+        st_poskusov = hec.stevnik()
+        if st_poskusov < 5:
+            print('Datoteke so že nameščene.')
+        elif st_poskusov == 5:
+            print('Kolikokrat moraš še poskusiti?')
+        elif st_poskusov == 6:
+            print('Še vedno vstrajaš?')
+        elif st_poskusov == 7:
+            print('No prav, bom pa štel tvoje poskuse.')
+        elif st_poskusov < 100:
+            print(f'To je {st_poskusov} poskus.')
+        elif st_poskusov == 100:
+            print(f'Juhu, uspelo ti je priti do {st_poskusov}, ampak sedaj te imam dovolj.')
+        else:
+            print('>:(')
+    else:
+        for podsez in SEZ:
+            if not pregled.preveri_podatke(podsez, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE):
+                povezovanje_funkcij.poveži(podsez, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE)
+                print(f'Ponovno naloženi podatki iz spletne strani {podsez[3]}.')
+        print('Nameščanje datotek končano.')
+        hec.ponastavi()

@@ -4,7 +4,7 @@ import requests
 
 def preveri_vse_podatke(sez, html_mapa, csv_mapa):
     '''Funkcija ki sprejme seznam podatkov in imena map, pogleda ce
-    mape obstajata in ce je csv dolg 101 vrstic
+    mape obstajata in ce je csv dolg 101 vrstic in ima 5 stolpcev
     '''
     for _, dat_html, dat_csv, _ in sez:
         pot_html = os.path.join(html_mapa, dat_html)
@@ -18,13 +18,18 @@ def preveri_vse_podatke(sez, html_mapa, csv_mapa):
 
         if len(csv) != 101:
             return False
+
+        for vrstica in csv:
+            stolpci = vrstica.strip().split(',')
+            if len(stolpci) != 5:
+                return False
                     
     return True
 
 
 def preveri_podatke(sez, html_mapa, csv_mapa):
     '''Funkcija ki sprejme seznam podatkov in imena map, pogleda ce
-    mape obstajata in ce je csv dolg 101 vrstic
+    mape obstajata in ce je csv dolg 101 vrstic in ima 5 stolpcev
     '''
     pot_html = os.path.join(html_mapa, sez[1])
     pot_csv = os.path.join(csv_mapa, sez[2])
@@ -37,6 +42,11 @@ def preveri_podatke(sez, html_mapa, csv_mapa):
 
     if len(csv) != 101:
         return False
+
+    for vrstica in csv:
+        stolpci = vrstica.strip().split(',')
+        if len(stolpci) != 5:
+            return False
                 
     return True
 

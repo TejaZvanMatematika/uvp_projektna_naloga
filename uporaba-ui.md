@@ -1,6 +1,7 @@
 # GEMINI
 
 
+## pregled - funkcija preveri_nalaganje_spletne_strani
 **Jaz:**
 usmeri me kako lahko pogledam ce se lahko koda websita lahko nalozi dol ali ne v pythonu
 
@@ -42,3 +43,21 @@ kako naredim da se mi izpise nekaj po for zanki le ce je vse uspesno koncano
 **Gemini**
 Uporaba for ... else zanke (Najbolj "pythonovski" način)
 Python ima posebno lastnost v zankah for. Če zanka teče do konca in se ne prekine z ukazom break, se takoj za tem izvede blok else.
+
+
+## pregled - funkcija vse_nalozi
+**Jaz**
+kako recem pythonu naj pogleda ce je mapa prazna
+
+**Gemini**
+Če želiš v Pythonu preveriti, ali je mapa prazna, je najpreprostejši in najhitrejši način uporaba funkcije os.listdir().
+
+Če seznam, ki ga vrne ta funkcija, ne vsebuje nobenega elementa, je mapa prazna.
+
+
+## main - del ki pregleduje ce so spletne strani dostopne
+**Jaz**
+rada bi da ce website ni dostopen ne gleda kode naprej od tega 
+
+**Gemini**
+Če želiš, da program takoj preneha z izvajanjem in se ustavi, ko naleti na spletno stran, ki ni dosegljiva, moraš v zanki uporabiti ukaz break (in morda še sys.exit() ali pa preprosto prekiniti celotno izvajanje programa, da ne gre preverjat map in nalagat naprej).

@@ -4,6 +4,7 @@ import mape_in_spletna_stran
 import seznam_v_csv
 import seznam
 import pregled
+import hec
 
 
 SEZ = [
@@ -22,13 +23,28 @@ SEZ = [
 ]
 MAPA_HTML_KODE = 'HTML_kode'
 MAPA_CSV_DATOTEKE = 'CSV_datoteke'
+STEVEC = 0
 
 mape_in_spletna_stran.ustvari_mapo(MAPA_HTML_KODE)
 mape_in_spletna_stran.ustvari_mapo(MAPA_CSV_DATOTEKE)
 
 
 if pregled.preveri_podatke(SEZ, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE):
-    print('Vse datoteke so že nameščene')
+    st_poskusov = hec.stevnik()
+    if st_poskusov < 5:
+        print('Datoteke so že nameščene.')
+    elif st_poskusov == 5:
+        print('Kolikokrat moraš še poskusiti?')
+    elif st_poskusov == 6:
+        print('Še vedno vstrajaš?')
+    elif st_poskusov == 7:
+        print('No prav, bom pa štel tvoje poskuse.')
+    elif st_poskusov < 100:
+        print(f'To je {st_poskusov} poskus.')
+    elif st_poskusov == 100:
+        print(f'Juhu, uspelo ti je priti do {st_poskusov}, sedaj pa dovolj.')
+    else:
+        print('>:(')
 else:
     for sez in SEZ:
         if not pregled.preveri_nalaganje_spletne_strani(sez[0]):

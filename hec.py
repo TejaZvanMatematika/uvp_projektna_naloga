@@ -20,3 +20,10 @@ def stevnik():
         f.write(str(stevilo))
 
     return stevilo
+
+
+def ponastavi():
+    datoteka = 'stetje.text'
+
+    with open(datoteka, 'w', encoding='utf-8') as f:
+        f.write('1')

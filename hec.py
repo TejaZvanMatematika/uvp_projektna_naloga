@@ -2,6 +2,7 @@ import os
 
 
 def stevnik():
+    '''Funkcija, ki šteje kolikokrat se je program zagnal'''
     datoteka = 'stetje.text'
     stevilo = 1
 
@@ -23,6 +24,7 @@ def stevnik():
 
 
 def ponastavi():
+    '''Funkcija ki resetira štetje'''
     datoteka = 'stetje.text'
 
     with open(datoteka, 'w', encoding='utf-8') as f:

@@ -7,6 +7,7 @@ import seznam_v_csv
 
 
 def poveži(sez, html_mapa, csv_mapa):
+    '''Funkcija logično poveže ostale funkcije'''
     pot_html = os.path.join(html_mapa, sez[1])
     pot_csv = os.path.join(csv_mapa, sez[2])
 

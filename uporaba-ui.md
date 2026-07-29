@@ -61,3 +61,17 @@ rada bi da ce website ni dostopen ne gleda kode naprej od tega
 
 **Gemini**
 Če želiš, da program takoj preneha z izvajanjem in se ustavi, ko naleti na spletno stran, ki ni dosegljiva, moraš v zanki uporabiti ukaz break (in morda še sys.exit() ali pa preprosto prekiniti celotno izvajanje programa, da ne gre preverjat map in nalagat naprej).
+
+
+## pregled - funkcija preveri vse podatke in preveri podatke
+**Jaz**
+ne daj mi kode, samo usmeri me kako lahko naredim da pregleda ce je 5 stolpcev v vsaki csv vrstici
+
+**Gemini**
+Za to ne potrebuješ nobene nove knjižnice. Ker že bereš vrstice iz datoteke (npr. z f.readlines()), lahko vsako prebrano vrstico preprosto razcepiš glede na ločilo (ki je v CSV datotekah običajno vejica).
+Tvoja pot je torej takšna:
+1. V zanki greš čez vsako prebrano vrstico v CSV datoteki.
+2. Vrstico očistiš presledkov/skritih znakov na koncu (z metodu za besedila).
+3. To vrstico razcepiš v seznam podatkov glede na vejico.
+4. Z vgrajeno funkcijo preveriš dolžino tega nastalega seznama in preveriš, ali je enaka 5.
+5. Če katera koli vrstica nima dolžine 5, funkcija takoj vrne False.

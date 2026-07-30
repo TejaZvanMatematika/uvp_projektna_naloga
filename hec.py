@@ -38,10 +38,10 @@ def zahtevaj_opravicilo():
         opravicilo = input("Zahtevam opravičilo (napiši 'opravičujem se'):")
         if opravicilo.strip().lower() == 'opravičujem se':
             ponastavi()
-            print('Opravičilo sprejeto, ponovno zaženi program :)')
+            print('Opravičilo sprejeto, ponovno zaženi program. :)')
             break
         else:
-            print('Ne, zahtevam opravičilo od tebe')
+            print('Ne, zahtevam opravičilo od tebe!')
 
 
 def izbrisi_vse(sez, html_mapa, csv_mapa):

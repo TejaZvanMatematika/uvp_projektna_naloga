@@ -32,7 +32,8 @@ def ponastavi():
 
 
 def zahtevaj_opravicilo():
-    '''Funkcija ki zahteva opravičilo od uporabnika'''
+    '''Funkcija ki zahteva opravičilo od uporabnika, dokler ne dobi pravega
+    vnosa je uporabnik zataknjen v loopu'''
     while True:
         opravicilo = input("Zahtevam opravičilo (napiši 'opravičujem se'):")
         if opravicilo.strip().lower() == 'opravičujem se':

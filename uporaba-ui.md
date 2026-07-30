@@ -75,3 +75,38 @@ Tvoja pot je torej takšna:
 3. To vrstico razcepiš v seznam podatkov glede na vejico.
 4. Z vgrajeno funkcijo preveriš dolžino tega nastalega seznama in preveriš, ali je enaka 5.
 5. Če katera koli vrstica nima dolžine 5, funkcija takoj vrne False.
+
+
+## hec - funkcija zahtevaj_opravicilo
+**Jaz**
+usmeri me kako napisem funkcijo, ki bo zahtevala da uporabnik napise doloceno stvar da se nadaljuje
+
+**Gemini**
+Zahteva, da uporabnik vpiše točno določeno besedo ali stavek za nadaljevanje programa, je klasična naloga v programiranju. Najlažje jo rešimo z zanko (while), ki se ponavlja, dokler vnos ni pravilen.
+
+Python
+def zahtevaj_vnos():
+    # Določimo besedo, ki jo mora uporabnik vnesti
+    pravilni_vnos = "naprej"
+
+    while True:
+        # Preberemo uporabnikov vnos in odstranimo odvečne presledke/nove vrstice
+        uporabnikov_vnos = input(
+            f"Za nadaljevanje vpiši besedo '{pravilni_vnos}': "
+        ).strip()
+
+        # Preverimo, ali se vnos ujema (ne glede na velike/male črke uporabimo .lower())
+        if uporabnikov_vnos.lower() == pravilni_vnos:
+            print("Uspešno! Nadaljujemo s programom...\n")
+            break  # Prekine zanko in nadaljuje program
+        else:
+            print("Napačen vnos. Poskusi ponovno.")
+
+Ključni gradniki kode:
+input(): Omogoča branje vnosa, ki ga uporabnik tipka na tipkovnici.
+
+.strip(): Odstrani začetne in končne presledke, če jih uporabnik pomotoma vpiše.
+
+.lower(): Poskrbi, da vnos ni občutljiv na velike in male črke (tako "Naprej" kot "naprej" bosta delovala).
+
+while True: Ustvari neskončno zanko, ki se vrti tako dolgo, dokler uporabnik ne vpiše pravilnega gesla in se izvede ukaz break.

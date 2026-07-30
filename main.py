@@ -59,9 +59,11 @@ def main():
             elif st_poskusov < 100:
                 print(f'To je {st_poskusov} poskus.')
             elif st_poskusov == 100:
-                print(f'Juhu, uspelo ti je priti do {st_poskusov}, ampak sedaj te imam dovolj.')
+                print(f'Uspelo ti je priti do {st_poskusov}, sedaj te imam dovolj.')
             else:
                 print('>:(')
+                hec.izbrisi_vse(SEZ, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE)
+                hec.zahtevaj_opravicilo()
         else:
             for podsez in SEZ:
                 if not pregled.preveri_podatke(podsez, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE):

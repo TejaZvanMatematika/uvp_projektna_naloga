@@ -17,4 +17,3 @@ def poveži(sez, html_mapa, csv_mapa):
 
     sez_podatki = seznam.seznam_podatkov(html_koda)
     seznam_v_csv.shrani_v_csv(sez_podatki, pot_csv)
-            

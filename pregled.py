@@ -23,7 +23,7 @@ def preveri_vse_podatke(sez, html_mapa, csv_mapa):
             stolpci = vrstica.strip().split(',')
             if len(stolpci) != 5:
                 return False
-                    
+
     return True
 
 
@@ -47,7 +47,7 @@ def preveri_podatke(sez, html_mapa, csv_mapa):
         stolpci = vrstica.strip().split(',')
         if len(stolpci) != 5:
             return False
-                
+
     return True
 
 

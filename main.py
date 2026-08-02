@@ -33,16 +33,16 @@ def main():
         for podsez in SEZ:
             if not pregled.preveri_nalaganje_spletne_strani(podsez[0]):
                 print(f'Prišlo je do napake pri odpiranju spletne strani z'
-                    f'naslovom {podsez[3]}. Poskusi znova.')
+                      f'naslovom {podsez[3]}. Poskusi znova.')
                 spletne_strani_delujejo = False
 
     if not spletne_strani_delujejo:
         sys.exit()
 
-
     if pregled.brez_datotek(MAPA_CSV_DATOTEKE):
         for podsez in SEZ:
-            povezovanje_funkcij.poveži(podsez, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE)
+            povezovanje_funkcij.poveži(
+                podsez, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE)
         print('Nameščanje datotek končano.')
         hec.ponastavi()
     else:
@@ -59,7 +59,8 @@ def main():
             elif st_poskusov < 100:
                 print(f'To je {st_poskusov} poskus.')
             elif st_poskusov == 100:
-                print(f'Uspelo ti je priti do {st_poskusov}, sedaj te imam dovolj.')
+                print(
+                    f'Uspelo ti je priti do {st_poskusov}, sedaj te imam dovolj.')
             else:
                 print('>:(')
                 hec.izbrisi_vse(SEZ, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE)
@@ -67,8 +68,10 @@ def main():
         else:
             for podsez in SEZ:
                 if not pregled.preveri_podatke(podsez, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE):
-                    povezovanje_funkcij.poveži(podsez, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE)
-                    print(f'Ponovno naloženi podatki iz spletne strani {podsez[3]}.')
+                    povezovanje_funkcij.poveži(
+                        podsez, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE)
+                    print(
+                        f'Ponovno naloženi podatki iz spletne strani {podsez[3]}.')
             print('Nameščanje datotek končano.')
             hec.ponastavi()
 

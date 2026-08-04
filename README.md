@@ -2,7 +2,8 @@
 
 ## opis
 To je program ki shrani HTML kodo iz spletne strani FIDE, potem iz te kode
-izlušči podatke, in te podatke shrani v csv datoteko. Vse datoteke so urejene
+izlušči podatke, in te podatke shrani v csv datoteko. Podatki na tej strani
+se mesečno spreminjajo in program se temu prilagodi. Vse datoteke so urejene
 po mapah za lažjo berljivost. Program je narejen tako da preveri delovanje spletnih
 strani in sporoči napako. Program tudi preverja dolžino csv in število stolpcev,
 tako da če kaj ni vredu ponovno naloži le določen csv ne pa vseh.

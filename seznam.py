@@ -1,7 +1,7 @@
 import re
 
 
-def seznam_podatkov(html_koda):
+def sez_podatkov_za_csv(html_koda):
     '''Funkcija sprejme html kodo, iz nje izlušči podatke o šahistih,
     potem pa te podatke shtrani v seznam na kar ta seznam shrani v seznam
     '''

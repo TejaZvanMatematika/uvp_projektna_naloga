@@ -110,3 +110,33 @@ input(): Omogoča branje vnosa, ki ga uporabnik tipka na tipkovnici.
 .lower(): Poskrbi, da vnos ni občutljiv na velike in male črke (tako "Naprej" kot "naprej" bosta delovala).
 
 while True: Ustvari neskončno zanko, ki se vrti tako dolgo, dokler uporabnik ne vpiše pravilnega gesla in se izvede ukaz break.
+
+
+## main
+**Jaz**
+ko preberem datoteko, kako bo zapisano ce bo prazna
+
+**Gemini**
+Če prebereš prazno datoteko, bo zapisana kot prazen niz: ""
+
+
+## glavni_sez - funkcija shrani_dat_v_sez
+**Jaz**
+kako shranim datoteko kjer ima vsaka vrstica tupl nazaj v seznam oblike [()()()()]
+
+**Gemini**
+Če si datoteko shranila tako, da je vsaka vrstica dobesedno izpisana terka v Python formatu (npr. ('url', 'html_pot', 'csv_pot')), uporabi modul ast. Funkcija ast.literal_eval prebere niz in ga varno pretvori nazaj v pravi Pythonov tuple.
+
+Python
+import ast
+
+def preberi_seznam_iz_datoteke(pot):
+    sez = []
+    with open(pot, 'r', encoding='utf-8') as f:
+        for vrstica in f:
+            vrstica = vrstica.strip()
+            if vrstica:  # Ignoriramo morebitne prazne vrstice
+                # Pretvori niz "('url', 'pot')" nazaj v pravi tuple ('url', 'pot')
+                terka = ast.literal_eval(vrstica)
+                sez.append(terka)
+    return sez

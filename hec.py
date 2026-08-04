@@ -1,13 +1,14 @@
 import os
 
 
-def stevnik():
+def stevnik(mapa):
     '''Funkcija, ki šteje kolikokrat se je program zagnal'''
     datoteka = 'stetje.text'
+    pot = os.path.join(mapa, datoteka)
     stevilo = 1
 
-    if os.path.exists(datoteka):
-        with open(datoteka, 'r', encoding='utf-8') as f:
+    if os.path.exists(pot):
+        with open(pot, 'r', encoding='utf-8') as f:
             st = f.read().strip()
 
         if st.isdigit():
@@ -15,29 +16,30 @@ def stevnik():
         else:
             stevilo += 1
     else:
-        stevilo += 1
+        stevilo = 1
 
-    with open(datoteka, 'w', encoding='utf-8') as f:
+    with open(pot, 'w', encoding='utf-8') as f:
         f.write(str(stevilo))
 
     return stevilo
 
 
-def ponastavi():
+def ponastavi(mapa):
     '''Funkcija ki resetira štetje'''
     datoteka = 'stetje.text'
+    pot = os.path.join(mapa, datoteka)
 
-    with open(datoteka, 'w', encoding='utf-8') as f:
+    with open(pot, 'w', encoding='utf-8') as f:
         f.write('1')
 
 
-def zahtevaj_opravicilo():
+def zahtevaj_opravicilo(mapa):
     '''Funkcija ki zahteva opravičilo od uporabnika, dokler ne dobi pravega
     vnosa je uporabnik zataknjen v loopu'''
     while True:
         opravicilo = input("Zahtevam opravičilo (napiši 'opravičujem se'):")
         if opravicilo.strip().lower() == 'opravičujem se':
-            ponastavi()
+            ponastavi(mapa)
             print('Opravičilo sprejeto, ponovno zaženi program. :)')
             break
         else:
@@ -45,11 +47,8 @@ def zahtevaj_opravicilo():
 
 
 def izbrisi_vse(sez, html_mapa, csv_mapa):
-    '''Funkcija ki izbrise vse datoteke in mape'''
-    for podsez in sez:
-        pot_html = os.path.join(html_mapa, podsez[1])
-        pot_csv = os.path.join(csv_mapa, podsez[2])
-
+    '''Funkcija ki izbriše vse datoteke in mape'''
+    for _, pot_html, pot_csv, _ in sez:
         os.remove(pot_html)
         os.remove(pot_csv)
 

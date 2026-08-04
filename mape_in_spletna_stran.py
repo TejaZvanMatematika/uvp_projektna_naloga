@@ -1,5 +1,6 @@
 import os
 import requests
+import re
 
 
 def shrani_spletno_stran(url, pot):
@@ -17,3 +18,11 @@ def shrani_spletno_stran(url, pot):
 def ustvari_mapo(mapa):
     '''Funkcija, ki pogleda za obstoj mape (če mape ni jo ustvari)'''
     os.makedirs(mapa, exist_ok=True)
+
+
+def pridobi_ime_strani(pot):
+    '''Funkcija, ki pridobi naslov spletne strani iz kode'''
+    with open(pot, 'r', encoding='utf-8') as f:
+        koda = f.read()
+    vzorec = r'<div class="title-page[^>]*>\s*(.*?)\s*</div>'
+    return re.findall(vzorec, koda, flags=re.DOTALL)[0].strip()

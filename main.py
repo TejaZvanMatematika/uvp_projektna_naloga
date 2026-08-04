@@ -78,7 +78,7 @@ def main():
                 print(f'To je {st_poskusov} poskus.')
             elif st_poskusov == 100:
                 print(f'Uspelo ti je priti do {st_poskusov}-tega poskusa, '
-                      'sedaj te imam dovolj.')
+                      'dovolj te imam.')
             else:
                 print('Izbrisal sem ti vse >:(')
                 hec.izbrisi_vse(SEZ, MAPA_HTML_KODE, MAPA_CSV_DATOTEKE)

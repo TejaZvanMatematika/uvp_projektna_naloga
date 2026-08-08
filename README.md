@@ -10,6 +10,7 @@ tako da če kaj ni vredu ponovno naloži le določen csv ne pa vseh.
 Program ima tudi vključeno šalo, in sicer če je že vse naloženo uporabnik pa še
 vedno zaganja program, bo po parih ponovitvah nekaj rekel, po stotih pa bo program
 izbrisal datoteke (html in csv) in od uporabnika zahteval opravičilo.
+V jupiter notebook pa so analizirani podatki za mesec avgust 2026.
 
 
 ## uporaba
@@ -28,3 +29,5 @@ izbrisal datoteke (html in csv) in od uporabnika zahteval opravičilo.
     VScode: uporabnik naj odpre datoteko in pritisne trikotnik desno zgoraj
     (Run Python File)
     Terminal: uporabnik naj v terminal napise 'python main.py'
+
+Za zagon celic v jupiter notebook uporabi gumb 'Run All', ampak pozor, podatki so analizirani za AVGUST 2026!

@@ -7,7 +7,7 @@ def shrani_v_csv(sez, pot):
     with open(pot, 'w', encoding='utf-8', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(
-            ['ID', 'Priimek ime', 'Letnica rojstva', 'Država', 'Elo'])
+            ['ID', 'priimek_ime', 'letnica rojstva', 'država', 'elo'])
 
         for sahist in sez:
             writer.writerow(sahist)
